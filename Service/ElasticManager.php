@@ -1,16 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hyerli
- * Date: 16.09.2019
- * Time: 16:15
- */
+
+namespace Service;
+
+use Elasticsearch\Client;
 
 class ElasticManager
 {
     private $client;
 
-    public function __construct(\Elasticsearch\Client $client)
+    public function __construct(Client $client)
     {
         $this->client = $client;
     }

@@ -1,5 +1,10 @@
 <?php
-class ElasticSearchBuilder extends \Elasticsearch\ClientBuilder
+
+namespace Builder;
+
+use Elasticsearch\ClientBuilder;
+
+class ElasticSearchBuilder extends ClientBuilder
 {
     public static function connect()
     {
