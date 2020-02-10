@@ -35,20 +35,22 @@
                 </div>
                 <br>
                 <div class="row text-center">
-                    <table data-vertable="ver1" id="table" style="display: none;">
-                        <thead>
-                        <tr class="row100 head">
-                            <th class="column100 ">Thumbnail</th>
-                            <th class="column100 ">Isbn</th>
-                            <th class="column100 ">Title</th>
-                            <th class="column100 ">Categories</th>
-                            <th class="column100 ">Authors</th>
-                            <th class="column100 ">Detail</th>
-                        </tr>
-                        </thead>
-                        <tbody id="table-row">
-                        </tbody>
-                    </table>
+                    <div class="col-8 mx-auto">
+                        <table data-vertable="ver1" id="table" style="display: none;">
+                            <thead>
+                            <tr class="row100 head">
+                                <th class="column100 ">Thumbnail</th>
+                                <th class="column100 ">Isbn</th>
+                                <th class="column100 ">Title</th>
+                                <th class="column100 ">Categories</th>
+                                <th class="column100 ">Authors</th>
+                                <th class="column100 ">Detail</th>
+                            </tr>
+                            </thead>
+                            <tbody id="table-row">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
