@@ -24,7 +24,7 @@ class ElasticSearchAdapter implements ISearchEngineAdapter
         $total = $this->response['hits']['total']['value'];
 
         $response = [
-            'message' => '<small>Yaklaşık <b>'.$total.'</b> sonuç bulundu</small>',
+            'message' => '<small>İlişkili <b>'.$total.'</b> sonuç bulundu.</small>',
             'data' => []
         ];
 
