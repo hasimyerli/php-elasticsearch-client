@@ -4,24 +4,11 @@
     <title>Table V03</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="v7/assets/images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="v7/assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="v7/assets/css/main.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 <div class="limiter">
@@ -31,8 +18,8 @@
                 <div class="row">
                     <div class="col-md-4 text-center"></div>
                     <div class="col-md-4 text-center">
-                        <form action="v7/search.php" method="post" class="">
-                            <img src="v7/ky.jpg" alt="" width="80" style="border: 3px solid #fff;box-shadow: 0px 0px 28px -7px rgba(0,0,0,0.25);margin: 10px;border-radius: 100px;">
+                        <form action="search.php" method="post" class="">
+                            <img src="assets/images/logo.png" alt="" class="logo">
                             <div class="text-center">
                                 <button class="field-name badge badge-success" data-field=""> Hepsi </button>
                                 <button class="field-name badge badge-secondary" data-field="title"> Ürün Adı </button>
@@ -77,15 +64,8 @@
     </div>
 </div>
 
-<!--===============================================================================================-->
-<script src="v7/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="v7/assets/vendor/bootstrap/js/popper.js"></script>
-<script src="v7/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="v7/assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="v7/assets/js/main.js"></script>
+<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <script>
     $(function() {
@@ -122,7 +102,7 @@
                 $('#suggest-area').show();
                 $.ajax({
                     method: "POST",
-                    url: 'v7/suggest.php',
+                    url: 'suggest.php',
                     data: {'search' : searchInput}
                 }).done(function(result) {
                     let data = $.parseJSON(result);
@@ -142,7 +122,7 @@
                 data: form.serialize()
             }).done(function(result) {
                 let data = $.parseJSON(result);
-
+                console.log(data);
                 $('#table-row').html("");
                 if (data.data.length === 0) {
                     $('#table').hide();
@@ -155,25 +135,25 @@
                 $.each( data.data, function( key, value ) {
                     let row = "";
                     row += '<tr class="row100">';
-                        let thumbnailUrl = value.thumbnailUrl;
-                        row += '<td class="column100 column1" data-column="column1"><img src="'+thumbnailUrl+'" width="60"></td>';
+                    let thumbnailUrl = value.thumbnailUrl;
+                    row += '<td class="column100 column1" data-column="column1"><img src="'+thumbnailUrl+'" width="60"></td>';
 
-                        let score = value._score;
-                        row += '<td class="column100 column2" data-column="column2">'+score+'</td>';
+                    let score = value._score;
+                    row += '<td class="column100 column2" data-column="column2">'+score+'</td>';
 
-                        let isbn = (value.highlight && value.highlight.isbn && value.highlight.isbn[0]) ? value.highlight.isbn[0] : value.isbn;
-                        row += '<td class="column100 column3" data-column="column3">'+isbn+'</td>';
+                    let isbn = (value.highlight && value.highlight.isbn && value.highlight.isbn[0]) ? value.highlight.isbn[0] : value.isbn;
+                    row += '<td class="column100 column3" data-column="column3">'+isbn+'</td>';
 
-                        let title = (value.highlight && value.highlight.title && value.highlight.title[0]) ? value.highlight.title[0] : value.title;
-                        row += '<td class="column100 column5" data-column="column5">'+title+'</td>';
+                    let title = (value.highlight && value.highlight.title && value.highlight.title[0]) ? value.highlight.title[0] : value.title;
+                    row += '<td class="column100 column5" data-column="column5">'+title+'</td>';
 
-                        let categories = (value.highlight && value.highlight.categories && value.highlight.categories[0]) ? value.highlight.categories[0] : value.categories;
-                        row += '<td class="column100 column6" data-column="column6">'+categories+'</td>';
+                    let categories = (value.highlight && value.highlight.categories && value.highlight.categories[0]) ? value.highlight.categories[0] : value.categories;
+                    row += '<td class="column100 column6" data-column="column6">'+categories+'</td>';
 
-                        let authors = (value.highlight && value.highlight.authors && value.highlight.authors[0]) ? value.highlight.authors[0] : value.authors;
-                        row += '<td class="column100 column7" data-column="column7">'+authors+'</td>';
+                    let authors = (value.highlight && value.highlight.authors && value.highlight.authors[0]) ? value.highlight.authors[0] : value.authors;
+                    row += '<td class="column100 column7" data-column="column7">'+authors+'</td>';
 
-                        row += '<td class="column100 column8" data-column="column8"><a href="'+thumbnailUrl+'" target="_blank" class="btn btn-sm btn-dark">İncele</a></td>';
+                    row += '<td class="column100 column8" data-column="column8"><a href="'+thumbnailUrl+'" target="_blank" class="btn btn-sm btn-dark">İncele</a></td>';
                     row += '</tr>';
                     $('#table-row').append(row);
                 });
