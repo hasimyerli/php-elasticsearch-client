@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Table V03</title>
+    <title>Php Elasticsearch Client</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
@@ -21,13 +21,13 @@
                         <form action="search.php" method="post" class="">
                             <img src="assets/images/logo.png" alt="" class="logo">
                             <div class="text-center">
-                                <a class="field-name badge badge-success" data-field=""> Hepsi </a>
-                                <a class="field-name badge badge-secondary" data-field="title"> Ürün Adı </a>
-                                <a class="field-name badge badge-secondary" data-field="authors"> Yazar </a>
-                                <a class="field-name badge badge-secondary" data-field="categories"> Kategori </a>
+                                <a class="field-name badge badge-success" data-field=""> All </a>
+                                <a class="field-name badge badge-secondary" data-field="title"> Title </a>
+                                <a class="field-name badge badge-secondary" data-field="authors"> Authors </a>
+                                <a class="field-name badge badge-secondary" data-field="categories"> Categories </a>
                             </div>
                             <div id="message" style="color:#8b8e94;"></div>
-                            <input type="text" placeholder="Bir şeyler ara..." name="search" id="search" class="form-control text-center m-1" autocomplete="off">
+                            <input type="text" placeholder="Search..." name="search" id="search" class="form-control text-center m-1" autocomplete="off">
                             <input type="hidden" name="field" value="" id="field">
                         </form>
                     </div>
@@ -38,12 +38,12 @@
                     <table data-vertable="ver1" id="table" style="display: none;">
                         <thead>
                         <tr class="row100 head">
-                            <th class="column100 ">Resim</th>
+                            <th class="column100 ">Thumbnail</th>
                             <th class="column100 ">Isbn</th>
-                            <th class="column100 ">Ürün Adı</th>
-                            <th class="column100 ">Kategori</th>
-                            <th class="column100 ">Yazar</th>
-                            <th class="column100 ">Detay</th>
+                            <th class="column100 ">Title</th>
+                            <th class="column100 ">Categories</th>
+                            <th class="column100 ">Authors</th>
+                            <th class="column100 ">Detail</th>
                         </tr>
                         </thead>
                         <tbody id="table-row">
@@ -97,7 +97,7 @@
                     row += '<td>'+item.title+'</td>';
                     row += '<td>'+item.categories+'</td>';
                     row += '<td>'+item.authors+'</td>';
-                    row += '<td><a href="'+thumbnailUrl+'" target="_blank" class="btn btn-sm btn-dark">İncele</a></td>';
+                    row += '<td><a href="'+thumbnailUrl+'" target="_blank" class="btn btn-sm btn-dark">Detail</a></td>';
                     row += '</tr>';
                     $('#table-row').append(row);
                 });
