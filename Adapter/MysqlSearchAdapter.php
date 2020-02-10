@@ -1,4 +1,9 @@
 <?php
+
+namespace Adapter;
+
+use library\MysqlSearch;
+
 class MysqlSearchAdapter implements ISearchEngineAdapter
 {
     private $mysqlSearchClient;

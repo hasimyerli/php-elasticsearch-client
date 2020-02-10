@@ -1,4 +1,7 @@
 <?php
+
+namespace Adapter;
+
 class SearchAdapterProvider
 {
     private $searchEngineClient;

@@ -1,10 +1,15 @@
 <?php
+
+namespace Adapter;
+
+use Elasticsearch\Client;
+
 class ElasticSearchAdapter implements ISearchEngineAdapter
 {
     private $elasticSearchClient;
     private $response = [];
 
-    public function __construct(\Elasticsearch\Client $elasticSearchClient)
+    public function __construct(Client $elasticSearchClient)
     {
         $this->elasticSearchClient = $elasticSearchClient;
     }

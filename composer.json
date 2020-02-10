@@ -1,5 +1,11 @@
 {
   "require": {
-    "elasticsearch/elasticsearch": "~7.0"
+    "elasticsearch/elasticsearch": "~7.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "": ""
+    }
   }
 }

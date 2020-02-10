@@ -1,4 +1,9 @@
 <?php
+
+namespace Service;
+
+use Adapter\SearchAdapterProvider;
+
 class ProductService
 {
     private $searchAdapter;

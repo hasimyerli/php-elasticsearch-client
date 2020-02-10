@@ -1,20 +1,12 @@
 <?php
 require 'vendor/autoload.php';
-include "helper/helper.php";
-include "Adapter/ISearchEngineAdapter.php";
-include "Builder/ElasticSearchBuilder.php";
-include "Builder/MysqlSearchBuilder.php";
-include "library/MysqlSearch.php";
-include "Service/ProductService.php";
-include "Adapter/ElasticSearchAdapter.php";
-include "Adapter/MysqlSearchAdapter.php";
-include "Adapter/SearchAdapterProvider.php";
 
-$searchAdapterProvider = new SearchAdapterProvider(
-    new ElasticSearchAdapter(ElasticSearchBuilder::connect())
+$searchAdapterProvider = new \Adapter\SearchAdapterProvider(
+    new \Adapter\ElasticSearchAdapter(\Builder\ElasticSearchBuilder::connect())
 );
 
-$productService = new ProductService($searchAdapterProvider);
+$productService = new \Service\ProductService($searchAdapterProvider);
+
 $search = (isset($_POST['search'])) ? $_POST['search'] : "";
 $field = (isset($_POST['field'])) ? $_POST['field'] : "";
 

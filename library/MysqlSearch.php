@@ -1,4 +1,7 @@
 <?php
+
+namespace library;
+
 class MysqlSearch
 {
     public function __construct()

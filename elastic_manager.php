@@ -1,14 +1,9 @@
 <?php
 require 'vendor/autoload.php';
-include "helper/helper.php";
-include "Adapter/ISearchEngineAdapter.php";
-include "Builder/ElasticSearchBuilder.php";
-include "Adapter/ElasticSearchAdapter.php";
-include "Service/ElasticManager.php";
 
-echo "<h3>Elastic Manager</h3>";
+echo "<h3>Elastic Manager Service</h3>";
 
-$manager = new ElasticManager(ElasticSearchBuilder::connect());
+$manager = new \Service\ElasticManager(\Builder\ElasticSearchBuilder::connect());
 
 /*
 $query = [
