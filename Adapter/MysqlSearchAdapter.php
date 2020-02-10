@@ -21,10 +21,17 @@ class MysqlSearchAdapter implements ISearchEngineAdapter
 
     public function getSearchResponse()
     {
-        $response = [];
-        foreach ($this->response['result'] as $key => $item) {
-            $response[$key] = $item['data'];
+        $total = $this->response['total'];
+
+        $response = [
+            'message' => '<small>Yaklaşık <b>'.$total.'</b> sonuç bulundu</small>',
+            'data' => []
+        ];
+
+        foreach ($this->response['data'] as $key => $item) {
+            $response[$key] = $item;
         }
+
         return $response;
     }
 }

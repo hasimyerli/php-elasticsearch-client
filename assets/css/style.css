@@ -8,3 +8,9 @@ body {
     margin: 10px;
     border-radius: 100px;
 }
+.field-name {
+    color: white !important;
+    padding: 5px;
+    font-weight: normal;
+    cursor: pointer;
+}

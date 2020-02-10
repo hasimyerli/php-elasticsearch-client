@@ -11,7 +11,6 @@ echo "<h3>Elastic Manager</h3>";
 $manager = new ElasticManager(ElasticSearchBuilder::connect());
 
 /*
-
 $query = [
     'index' => 'phrase_suggester_index'
 ];
@@ -168,8 +167,6 @@ foreach ($books as $key => $book) {
 }
 
 $bulk = $manager->bulk($query);
-
-
 
 $query = [
     'index' => 'book_index',
